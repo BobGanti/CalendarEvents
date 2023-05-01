@@ -1,0 +1,105 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    ViewBag.Title = "Index 2";
+}
+
+<link href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.4.0/fullcalendar.min.css" rel="stylesheet" />
+<link href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.4.0/fullcalendar.print.css" rel="stylesheet" media="print"/>
+
+ <!--Button trigger modal -->
+<button id="btn" type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+  Launch demo modal
+</button>
+
+<!-- Modal -->
+<div id="myModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title"><span id="eventTitle"></span></h4>
+                <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p id="pDetails"></p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row text-center">
+    <h1 class="display-4">Calendar Web App</h1>
+    <div id="calendar" style="border:2px solid gray; background-color:lightskyblue;"></div>
+</div>
+
+@section Scripts 
+{
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.4.0/fullcalendar.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            var events = [];
+            $.ajax({
+               type: "GET",
+               url: "/home/GetEventsAjax",
+               success: function(data) {
+                   $.each(data, function(i, v) {
+                       events.push({
+                           title: v.name,
+                           description: v.description,
+                           start: moment(v.startTime),
+                           end: moment(v.endTime),
+                           description: v.description,
+                           location: v.locationName,
+                       });
+                   })
+     
+                   GenerateCalendar(events);
+               },
+               error: function(err) {
+                   alert('Failed');
+               }
+
+            })
+            
+            function GenerateCalendar(events) {
+                //$('#calendar').fullCalendar('destroy');
+
+                $('#calendar').fullCalendar({
+                    //contentHeight: 400,
+                    defaultDate: new Date(),
+                    timeFormat: 'h(:mm)a',
+                    header: {
+                        left: 'prev,next today',
+                        center: 'title',
+                        right: 'month,basicWeek,basicDay,agenda'
+                    },
+                    events: events,
+                    eventLimit: true,
+                    eventColor: '#378006',
+                    
+                    eventClick: function(calEvent, jsEvent, view) {
+                        $('#myModal #eventTitle').text(calEvent.title);
+                        var $description = $('<div/>');
+                        $description.append($('<p/>').html('<b>Event Id:</b>' +  calEvent.id));
+                        $description.append($('<p/>').html('<b>Start:</b>' +  calEvent.start));
+                        $description.append($('<p/>').html('<b>End:</b>' +  calEvent.end));
+                        $description.append($('<p/>').text('<b>Description:</b>' +  calEvent.description));
+                        $description.append($('<p/>').text('<b>Location:</b>' +  calEvent.locationName));
+                        $('#myModal #pDetails').empty().html($description);
+                        $('#myModal').modal();
+                    }
+                });
+            }
+        })
+    </script>
+    
+}
