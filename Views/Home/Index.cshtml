@@ -1,10 +1,6 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
 }
-<!-- Button trigger modal -->
-<button id="btn" type="button" class="btn btn-primary hidden" data-bs-toggle="modal" data-bs-target="#myModal" aria-hidden="true">
-  Launch demo modal
-</button>
 
 <div class="row text-center">
     <h1 class="display-4">Calendar Web App</h1>
@@ -12,7 +8,7 @@
 </div>
 
 <!-- Modal -->
-<div id="myModal" class="modal fade" role="dialog">
+<div id="eventModal" class="modal fade" role="dialog">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
@@ -22,10 +18,11 @@
                 </button>
             </div>
             <div class="modal-body">
-                <p id="pDetails"></p>
+                <p id="eventDetails"></p>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Update</button>
+                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
             </div>
         </div>
     </div>
@@ -36,32 +33,29 @@
 {
     <script>
 
-    document.addEventListener('DOMContentLoaded', function () {
-        
-        var events = @Html.Raw(ViewData["Events"]);
-        var calendarEl = document.getElementById('calendar');
-        var calendar = new FullCalendar.Calendar(calendarEl, {
-            initialView: 'dayGridMonth',
-            events: events,
-            @*resources: @Html.Raw(ViewData["Resources"]),*@
-            headerToolbar: {
+        document.addEventListener('DOMContentLoaded', function () {
+
+            var $events = @Html.Raw(ViewData["Events"]);
+            var calendarEl = document.getElementById('calendar');
+            var calendar = new FullCalendar.Calendar(calendarEl, {
+                initialView: 'dayGridMonth',
+                events: $events,
+                headerToolbar: {
                 left: 'prev,next today',
                 center: 'title',
                 right: 'dayGridMonth,timeGridWeek,timeGridDay,listMonth'
             },
-            eventColor: '#378006',
-            eventClick: function(info) {
-                $('#btn').click();               
-                $('#myModal #eventTitle').text(info.event.locationName);
-                var $description = $('<div/>');
-                 $description.append($('<p/>').html('<b>Event Id:</b>' + info.event.id));
-                $description.append($('<p/>').html('<b>Start:</b>' + info.event.start));
-                $description.append($('<p/>').html('<b>End:</b>' + info.event.end));
-                $description.append($('<p/>').html('<b>Description:</b>' + info.description));
-                $description.append($('<p/>').html('<b>Location:</b>' +  info.locationName));
-                 $('#myModal #pDetails').html($description);
-                $('#myModal').modal();
-            }
+                eventColor: '#378006',
+                eventClick: function (info) {
+                    $('#eventModal #eventTitle').text(info.event.title);
+                    var $description = $('<div/>');
+                    $description.append($('<p/>').html('<b>Start:</b> ' + info.event.start));
+                    $description.append($('<p/>').html('<b>End:</b> ' + info.event.end));
+                    $description.append($('<p/>').html('<b>Description:</b> ' + info.event.extendedProps.description));
+                    $description.append($('<p/>').html('<b>Location:</b> ' + info.event.extendedProps.locationName));
+                    $('#eventModal #eventDetails').html($description);
+                    $('#eventModal').modal("show");
+                }
         });
         calendar.render();
     });

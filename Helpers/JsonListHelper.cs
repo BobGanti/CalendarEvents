@@ -1,4 +1,6 @@
 ﻿using CalendarEvents.Models.Objs;
+using Microsoft.Build.Framework;
+using System.ComponentModel.DataAnnotations;
 using System.Text.Json;
 
 namespace CalendarEvents.Helpers
@@ -10,7 +12,7 @@ namespace CalendarEvents.Helpers
             var calendarEventList = new List<CalendarEvent>();
             foreach (var eventObj in eventObjs)
             {
-                var calendarEvent = new CalendarEvent
+                var calendarEvent = new CalendarEvent()
                 {
                     id = eventObj.Id,
                     title = eventObj.Name,
@@ -20,7 +22,7 @@ namespace CalendarEvents.Helpers
                     locationName = eventObj.Location.Name,
                     description = eventObj.Description
                 };
-                
+
                 calendarEventList.Add(calendarEvent);
             }
             return JsonSerializer.Serialize(calendarEventList);
@@ -47,7 +49,7 @@ namespace CalendarEvents.Helpers
         public int id { get; set; }
         public string title { get; set; }
         public DateTime start { get; set; }
-        public DateTime end{ get; set; }
+        public DateTime end { get; set; }
         public int resourceId { get; set; }
         public string locationName { get; set; }
         public string description { get; set; }
@@ -59,3 +61,4 @@ namespace CalendarEvents.Helpers
         public string title { get; set; }
     }
 }
+

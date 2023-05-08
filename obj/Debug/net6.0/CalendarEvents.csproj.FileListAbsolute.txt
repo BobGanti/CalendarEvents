@@ -291,10 +291,3 @@ C:\Users\Admin\source\repos\AppBoilersSln\CalendarEvents\bin\Debug\net6.0\ru\Mic
 C:\Users\Admin\source\repos\AppBoilersSln\CalendarEvents\bin\Debug\net6.0\tr\Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll
 C:\Users\Admin\source\repos\AppBoilersSln\CalendarEvents\bin\Debug\net6.0\zh-Hans\Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll
 C:\Users\Admin\source\repos\AppBoilersSln\CalendarEvents\bin\Debug\net6.0\zh-Hant\Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll
-C:\Users\Admin\source\repos\AppBoilersSln\CalendarEvents\bin\Debug\net6.0\System.Web.Mvc.dll
-C:\Users\Admin\source\repos\AppBoilersSln\CalendarEvents\bin\Debug\net6.0\System.Web.Razor.dll
-C:\Users\Admin\source\repos\AppBoilersSln\CalendarEvents\bin\Debug\net6.0\System.Web.Helpers.dll
-C:\Users\Admin\source\repos\AppBoilersSln\CalendarEvents\bin\Debug\net6.0\System.Web.WebPages.Deployment.dll
-C:\Users\Admin\source\repos\AppBoilersSln\CalendarEvents\bin\Debug\net6.0\System.Web.WebPages.Razor.dll
-C:\Users\Admin\source\repos\AppBoilersSln\CalendarEvents\bin\Debug\net6.0\System.Web.WebPages.dll
-C:\Users\Admin\source\repos\AppBoilersSln\CalendarEvents\bin\Debug\net6.0\Microsoft.Web.Infrastructure.dll

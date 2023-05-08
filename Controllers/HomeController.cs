@@ -3,7 +3,6 @@ using CalendarEvents.Helpers;
 using CalendarEvents.Models.VMs;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
-using System.Web.Helpers;
 
 namespace CalendarEvents.Controllers
 {
@@ -18,8 +17,10 @@ namespace CalendarEvents.Controllers
 
         public IActionResult Index()
         {
-            ViewData["Resources"] = JsonListHelper.GetResourceListJsonString(_dal.GetAllLocations().ToList());
+            // return JsonSerializer objects
+            ViewData["Resources"] = JsonListHelper.GetResourceListJsonString(_dal.GetAllLocations().ToList());   
             ViewData["Events"] = JsonListHelper.GetEventListJsonString(_dal.GetAllEvents().ToList());
+           
             return View();
         }
 
@@ -28,6 +29,7 @@ namespace CalendarEvents.Controllers
             return View();
         }
 
+        // return JsonReult
         public JsonResult GetEventsAjax()
         {
             var JsonObj = Json(_dal.GetAllEvents().ToList());

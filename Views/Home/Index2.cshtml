@@ -6,12 +6,7 @@
 }
 
 <link href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.4.0/fullcalendar.min.css" rel="stylesheet" />
-<link href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.4.0/fullcalendar.print.css" rel="stylesheet" media="print"/>
 
- <!--Button trigger modal -->
-<button id="btn" type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
-  Launch demo modal
-</button>
 
 <!-- Modal -->
 <div id="myModal" class="modal fade" role="dialog">
@@ -71,7 +66,8 @@
             })
             
             function GenerateCalendar(events) {
-                //$('#calendar').fullCalendar('destroy');
+
+                $('#calendar').fullCalendar('destroy');
 
                 $('#calendar').fullCalendar({
                     //contentHeight: 400,
@@ -95,7 +91,7 @@
                         $description.append($('<p/>').text('<b>Description:</b>' +  calEvent.description));
                         $description.append($('<p/>').text('<b>Location:</b>' +  calEvent.locationName));
                         $('#myModal #pDetails').empty().html($description);
-                        $('#myModal').modal();
+                        $('#myModal').modal('show');
                     }
                 });
             }

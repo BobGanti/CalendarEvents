@@ -9,7 +9,6 @@
       "CalendarEvents/1.0.0": {
         "dependencies": {
           "Microsoft.AspNet.Identity.EntityFramework": "2.2.3",
-          "Microsoft.AspNet.Mvc": "5.3.0-preview1",
           "Microsoft.EntityFrameworkCore": "8.0.0-preview.3.23174.2",
           "Microsoft.EntityFrameworkCore.SqlServer": "8.0.0-preview.3.23174.2",
           "Microsoft.EntityFrameworkCore.Tools": "8.0.0-preview.3.23174.2",
@@ -116,50 +115,6 @@
           "lib/net45/Microsoft.AspNet.Identity.EntityFramework.dll": {
             "assemblyVersion": "2.0.0.0",
             "fileVersion": "2.2.3.11125"
-          }
-        }
-      },
-      "Microsoft.AspNet.Mvc/5.3.0-preview1": {
-        "dependencies": {
-          "Microsoft.AspNet.Razor": "3.3.0-preview1",
-          "Microsoft.AspNet.WebPages": "3.3.0-preview1"
-        },
-        "runtime": {
-          "lib/net45/System.Web.Mvc.dll": {
-            "assemblyVersion": "5.3.0.0",
-            "fileVersion": "5.3.61130.51"
-          }
-        }
-      },
-      "Microsoft.AspNet.Razor/3.3.0-preview1": {
-        "runtime": {
-          "lib/net45/System.Web.Razor.dll": {
-            "assemblyVersion": "3.0.0.0",
-            "fileVersion": "3.0.61130.51"
-          }
-        }
-      },
-      "Microsoft.AspNet.WebPages/3.3.0-preview1": {
-        "dependencies": {
-          "Microsoft.AspNet.Razor": "3.3.0-preview1",
-          "Microsoft.Web.Infrastructure": "1.0.0"
-        },
-        "runtime": {
-          "lib/net45/System.Web.Helpers.dll": {
-            "assemblyVersion": "3.0.0.0",
-            "fileVersion": "3.0.61130.51"
-          },
-          "lib/net45/System.Web.WebPages.Deployment.dll": {
-            "assemblyVersion": "3.0.0.0",
-            "fileVersion": "3.0.61130.51"
-          },
-          "lib/net45/System.Web.WebPages.Razor.dll": {
-            "assemblyVersion": "3.0.0.0",
-            "fileVersion": "3.0.61130.51"
-          },
-          "lib/net45/System.Web.WebPages.dll": {
-            "assemblyVersion": "3.0.0.0",
-            "fileVersion": "3.0.61130.51"
           }
         }
       },
@@ -1415,14 +1370,6 @@
           }
         }
       },
-      "Microsoft.Web.Infrastructure/1.0.0": {
-        "runtime": {
-          "lib/net40/Microsoft.Web.Infrastructure.dll": {
-            "assemblyVersion": "1.0.0.0",
-            "fileVersion": "1.0.20105.407"
-          }
-        }
-      },
       "Microsoft.Win32.Primitives/4.3.0": {
         "dependencies": {
           "Microsoft.NETCore.Platforms": "1.1.1",
@@ -2580,27 +2527,6 @@
       "path": "microsoft.aspnet.identity.entityframework/2.2.3",
       "hashPath": "microsoft.aspnet.identity.entityframework.2.2.3.nupkg.sha512"
     },
-    "Microsoft.AspNet.Mvc/5.3.0-preview1": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-LMCqCwO0e3ZUH5DRcankzs8vK2QK7NWQn0pbZc84mVl0p9Nafniw4GZdnPSwnq6cC3x5N7v24KqSUVRqsPj4lw==",
-      "path": "microsoft.aspnet.mvc/5.3.0-preview1",
-      "hashPath": "microsoft.aspnet.mvc.5.3.0-preview1.nupkg.sha512"
-    },
-    "Microsoft.AspNet.Razor/3.3.0-preview1": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-ZpBaNT8E8hQ1wIPh84tud9U3t14UK1OFUo0znnUyasmmO1oydhrZMmc+NXYHRJPEQ36nPp69653ZcNn1zUeu/A==",
-      "path": "microsoft.aspnet.razor/3.3.0-preview1",
-      "hashPath": "microsoft.aspnet.razor.3.3.0-preview1.nupkg.sha512"
-    },
-    "Microsoft.AspNet.WebPages/3.3.0-preview1": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-L6ALbvp6YdqT6vtqQ+1kE5DOfpXCUPtBiH5qwbbUUjGFY550UHAhYdFf+1aEuKaDMiM0rm8X6gyHJcVgzjUhqw==",
-      "path": "microsoft.aspnet.webpages/3.3.0-preview1",
-      "hashPath": "microsoft.aspnet.webpages.3.3.0-preview1.nupkg.sha512"
-    },
     "Microsoft.AspNetCore.Razor.Language/6.0.0": {
       "type": "package",
       "serviceable": true,
@@ -3027,13 +2953,6 @@
       "sha512": "sha512-wO6yeIq12881/Pyhb4fIxDuUWAwh9GuDbsU7bW/iHOEqEK+YxtcROs8EzcQ+iZfKVGEkkSmqhghncBWG67/ASw==",
       "path": "microsoft.visualstudio.web.codegenerators.mvc/6.0.13",
       "hashPath": "microsoft.visualstudio.web.codegenerators.mvc.6.0.13.nupkg.sha512"
-    },
-    "Microsoft.Web.Infrastructure/1.0.0": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-FNmvLn5m2LTU/Rs2KWVo0SIIh9Ek+U0ojex7xeDaSHw/zgEP77A8vY5cVWgUtBGS8MJfDGNn8rpXJWEIQaPwTg==",
-      "path": "microsoft.web.infrastructure/1.0.0",
-      "hashPath": "microsoft.web.infrastructure.1.0.0.nupkg.sha512"
     },
     "Microsoft.Win32.Primitives/4.3.0": {
       "type": "package",
