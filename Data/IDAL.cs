@@ -8,7 +8,7 @@ namespace CalendarEvents.Data
         Location GetLocation(int id);
         Task<Location> UpdateLocation(Location obj);
         Task<Location> AddLocation(Location obj);
-        void DeleteLocation(int id);
+        Task<Location> DeleteLocation(int id);
 
         /*
          * Events
@@ -17,6 +17,6 @@ namespace CalendarEvents.Data
         Event GetEvent(int id);
         Task<Event> UpdateEvent(Event obj);
         Task<Event> AddEvent(Event obj);
-        void DeleteEvent(int id);
+        Task<Event> DeleteEvent(int id);
     }
 }

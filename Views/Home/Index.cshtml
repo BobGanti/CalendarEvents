@@ -41,10 +41,10 @@
                 initialView: 'dayGridMonth',
                 events: $events,
                 headerToolbar: {
-                left: 'prev,next today',
-                center: 'title',
-                right: 'dayGridMonth,timeGridWeek,timeGridDay,listMonth'
-            },
+                    left: 'prev,next today',
+                    center: 'title',
+                    right: 'dayGridMonth,timeGridWeek,timeGridDay,listMonth'
+                },
                 eventColor: '#378006',
                 eventClick: function (info) {
                     $('#eventModal #eventTitle').text(info.event.title);
@@ -56,8 +56,8 @@
                     $('#eventModal #eventDetails').html($description);
                     $('#eventModal').modal("show");
                 }
-        });
-        calendar.render();
+            });
+            calendar.render();
     });
 
     </script>

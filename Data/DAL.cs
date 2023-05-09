@@ -77,27 +77,14 @@ namespace CalendarEvents.Data
         }
 
         // Delete Event
-        public void DeleteEvent(int id)
+        public async Task<Event> DeleteEvent(int id)
         {
             var eventInDb = _context.Events.Find(id);
-                                //.Include(x => x.LocationName)
-                                //.FirstOrDefaultAsync(m => m.id == id);
+                               
             _context.Events.Remove(eventInDb);
-            _context.SaveChanges();
-        }
+            await _context.SaveChangesAsync();
 
-        void IDAL.DeleteLocation(int id)
-        {
-            var loc = _context.Locations.Find(id);
-            _context.Locations.Remove(loc);
-            _context.SaveChanges();
-        }
-
-        void IDAL.DeleteEvent(int id)
-        {
-            var @event = _context.Events.Find(id);
-            _context.Events.Remove(@event);
-            _context.SaveChanges();
+            return eventInDb;
         }
     }
 }

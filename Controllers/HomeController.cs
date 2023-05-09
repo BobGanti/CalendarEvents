@@ -18,9 +18,9 @@ namespace CalendarEvents.Controllers
         public IActionResult Index()
         {
             // return JsonSerializer objects
-            ViewData["Resources"] = JsonListHelper.GetResourceListJsonString(_dal.GetAllLocations().ToList());   
+            ViewData["Resources"] = JsonListHelper.GetResourceListJsonString(_dal.GetAllLocations().ToList());
             ViewData["Events"] = JsonListHelper.GetEventListJsonString(_dal.GetAllEvents().ToList());
-           
+            
             return View();
         }
 
